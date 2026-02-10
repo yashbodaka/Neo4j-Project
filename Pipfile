@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+neo4j = ">=5.25.0"
+python-dotenv = ">=1.0.0"
+google-generativeai = ">=0.8.0"
+groq = ">=0.13.0"
+pypdf = ">=5.1.0"
+beautifulsoup4 = ">=4.12.0"
+lxml = ">=5.0.0"
+html5lib = ">=1.1"
+requests = ">=2.32.0"
+sentence-transformers = ">=3.0.0"
+torch = ">=2.0.0"
+numpy = ">=1.24.0"
+jsonlines = ">=4.0.0"
+tqdm = ">=4.66.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.13"

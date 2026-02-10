@@ -1,0 +1,23 @@
+# Core Dependencies
+neo4j>=5.25.0
+python-dotenv>=1.0.0
+
+# LLM APIs
+google-generativeai>=0.8.0
+groq>=0.13.0
+
+# Document Processing
+pypdf>=5.1.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+html5lib>=1.1
+requests>=2.32.0
+
+# Embeddings and Vector Search
+sentence-transformers>=3.0.0
+torch>=2.0.0
+numpy>=1.24.0
+
+# Data Processing
+jsonlines>=4.0.0
+tqdm>=4.66.0
