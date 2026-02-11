@@ -1,6 +1,7 @@
 # Core Dependencies
 neo4j>=5.25.0
 python-dotenv>=1.0.0
+flask>=3.0.0
 
 # LLM APIs
 google-generativeai>=0.8.0

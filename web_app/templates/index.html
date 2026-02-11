@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMP Regulatory Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <h1>GMP Regulatory Intelligence</h1>
+                <p class="subtitle">Knowledge Graph RAG System</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Query Section -->
+            <section class="query-section" id="querySection">
+                <div class="query-intro">
+                    <h2>Query Regulatory Requirements</h2>
+                    <p>Ask questions about GMP regulations, identify cross-references, trace dependencies, and detect conflicts across regulatory frameworks</p>
+                </div>
+
+                <div class="query-container">
+                    <div class="query-input-wrapper">
+                        <textarea 
+                            id="queryInput" 
+                            placeholder="e.g., What GMP requirements apply to aseptic filling?"
+                            rows="3"
+                        ></textarea>
+                        <div class="query-actions">
+                            <div class="query-options">
+                                <label class="option-label">
+                                    <span>Results:</span>
+                                    <select id="topK">
+                                        <option value="5">5</option>
+                                        <option value="7" selected>7</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <button id="submitBtn" class="submit-btn">
+                                <span class="btn-text">Search</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Example queries -->
+                    <div class="example-queries">
+                        <span class="example-label">Example queries</span>
+                        <button class="example-query" data-query="What GMP requirements apply to aseptic filling?">Aseptic filling requirements</button>
+                        <button class="example-query" data-query="Find cross-references between MHRA and EU GMP Annex 1">Cross-references</button>
+                        <button class="example-query" data-query="What are the temperature requirements for storage of sterile products?">Temperature requirements</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing regulations...</p>
+                </div>
+
+                <!-- Results Content -->
+                <div class="results-content hidden" id="resultsContent">
+                    <!-- Answer Card -->
+                    <div class="answer-card">
+                        <div class="answer-header">
+                            <h3>Analysis</h3>
+                            <div class="confidence-badge" id="confidenceBadge">
+                                <span class="confidence-label">Confidence</span>
+                                <span class="confidence-value" id="confidenceValue">—</span>
+                            </div>
+                        </div>
+                        <div class="answer-body">
+                            <div class="query-display" id="queryDisplay"></div>
+                            <div class="answer-text" id="answerText"></div>
+                            <div class="query-metadata">
+                                <span class="metadata-item" id="queryType"></span>
+                            </div>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Graph Path Section -->
+                    <div class="graph-section">
+                        <h3 class="section-title">Graph Traversal Path</h3>
+                        <p class="path-description" id="pathDescription"></p>
+                        <div class="graph-path" id="graphPath"></div>
+                    </div>
+
+                    <!-- Cypher Query Section -->
+                    <div class="cypher-section">
+                        <h3 class="section-title">Cypher Query Executed</h3>
+                        <pre class="cypher-query" id="cypherQuery"></pre>
+                    </div>
+
+                    <!-- Sources Section -->
+                    <div class="sources-section">
+                        <h3 class="sources-title">
+                            <span>Source Documents</span>
+                            <span class="sources-count" id="sourcesCount">0</span>
+                        </h3>
+                        <div class="sources-grid" id="sourcesGrid"></div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="results-actions">
+                        <button class="action-btn secondary" id="newQueryBtn">
+                            New Query
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error State -->
+                <div class="error-state hidden" id="errorState">
+                    <h3>Query Failed</h3>
+                    <p id="errorMessage"></p>
+                    <button class="action-btn" id="retryBtn">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Neo4j Knowledge Graph • 3,113 Nodes • 9,181 Relationships</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
