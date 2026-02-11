@@ -452,8 +452,8 @@ Neo4J Assignment/
 │   └── backup/                 # Database exports
 │       └── neo4j_dump.json     # Full graph export (40.46 MB)
 │
-└── 🤖 Optional
-    └── chatbot/                # Future: Interactive chat interface
+└── 🤖 Frontend 
+    └── chatbot/                #Frontend UI
 ```
 
 ---
